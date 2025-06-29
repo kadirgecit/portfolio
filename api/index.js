@@ -53,5 +53,17 @@ app.use((err, req, res, next) => {
 // Main handler for Vercel
 module.exports = async (req, res) => {
   await initializeAdmin();
+  
+  // Debug logging
+  console.log(`${req.method} ${req.url}`);
+  
+  // Strip /api prefix from URL for Express routing
+  if (req.url.startsWith('/api')) {
+    const originalUrl = req.url;
+    req.url = req.url.replace('/api', '');
+    if (req.url === '') req.url = '/';
+    console.log(`URL rewritten: ${originalUrl} -> ${req.url}`);
+  }
+  
   return app(req, res);
 };
