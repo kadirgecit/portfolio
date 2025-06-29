@@ -101,16 +101,38 @@ ADMIN_PASSWORD="admin123"
 
 ## 🚀 Deployment
 
-### Frontend (Vercel/Netlify)
-```bash
-npm run build
-```
+### Vercel Deployment (Recommended)
 
-### Backend (Railway/Heroku)
-```bash
-cd server
-npm start
-```
+This project is optimized for Vercel deployment with serverless functions.
+
+1. **Deploy to Vercel**
+   ```bash
+   npm install -g vercel
+   vercel
+   ```
+
+2. **Set environment variables in Vercel dashboard**:
+   - `DATABASE_URL`: Your NeonDB PostgreSQL connection string
+   - `JWT_SECRET`: Your JWT secret key
+   - `ADMIN_EMAIL`: Admin email
+   - `ADMIN_PASSWORD`: Admin password
+
+3. **Features included**:
+   - Automatic Prisma client generation
+   - Serverless API functions in `/api` directory
+   - Optimized build with code splitting
+   - SPA routing configuration
+   - Asset caching headers
+
+### Manual Deployment
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy the `dist` folder** to your hosting provider
+3. **Set up API endpoints** using the `/api` directory structure
 
 ## 📊 Admin Panel
 

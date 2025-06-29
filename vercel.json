@@ -24,16 +24,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "env": {
-    "DATABASE_URL": "postgres://neondb_owner:npg_tm1ZHpVIvMD6@ep-tiny-block-a4ej141n-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require",
-    "JWT_SECRET": "your-super-secret-jwt-key-change-this-in-production",
-    "ADMIN_EMAIL": "admin@kadirgecit.com",
-    "ADMIN_PASSWORD": "admin123"
-  }
+  ]
 }
