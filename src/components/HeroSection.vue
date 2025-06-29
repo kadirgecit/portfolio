@@ -16,45 +16,55 @@ onMounted(() => {
   const tl = gsap.timeline({ delay: 1 })
 
   // Animate title with typewriter effect
-  tl.fromTo(titleRef.value,
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-  )
-  .to(titleRef.value, {
-    text: "Kadir Geçit",
-    duration: 2,
-    ease: "none"
-  }, "-=0.5")
+  if (titleRef.value) {
+    tl.fromTo(titleRef.value,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+    )
+    .to(titleRef.value, {
+      text: "Kadir Geçit",
+      duration: 2,
+      ease: "none"
+    }, "-=0.5")
+  }
   
   // Animate subtitle
-  .fromTo(subtitleRef.value,
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    "-=1"
-  )
+  if (subtitleRef.value) {
+    tl.fromTo(subtitleRef.value,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      "-=1"
+    )
+  }
   
   // Animate description
-  .fromTo(descriptionRef.value,
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    "-=0.5"
-  )
+  if (descriptionRef.value) {
+    tl.fromTo(descriptionRef.value,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      "-=0.5"
+    )
+  }
   
   // Animate CTA
-  .fromTo(ctaRef.value,
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    "-=0.3"
-  )
+  if (ctaRef.value) {
+    tl.fromTo(ctaRef.value,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      "-=0.3"
+    )
+  }
 
   // Floating animation for the hero content
-  gsap.to(heroRef.value, {
-    y: -10,
-    duration: 3,
-    repeat: -1,
-    yoyo: true,
-    ease: 'power2.inOut'
-  })
+  if (heroRef.value) {
+    gsap.to(heroRef.value, {
+      y: -10,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power2.inOut'
+    })
+  }
 })
 
 function scrollToProjects() {

@@ -7,10 +7,12 @@ const isMenuOpen = ref(false)
 
 onMounted(() => {
   // Animate navigation on load
-  gsap.fromTo(navRef.value, 
-    { y: -100, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: 'power2.out' }
-  )
+  if (navRef.value) {
+    gsap.fromTo(navRef.value, 
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: 'power2.out' }
+    )
+  }
 })
 
 function scrollToSection(sectionId: string) {

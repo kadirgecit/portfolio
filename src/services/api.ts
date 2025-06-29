@@ -1,6 +1,14 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:3001/api'
+// Determine if we're in the OpenHands environment
+const isOpenHandsEnv = window.location.hostname.includes('all-hands.dev');
+
+// Use the correct URL for the server
+const API_BASE_URL = isOpenHandsEnv 
+  ? 'http://localhost:3001/api' 
+  : import.meta.env.PROD 
+    ? '/api' 
+    : 'http://localhost:3001/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,

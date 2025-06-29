@@ -5,7 +5,7 @@ import { authAPI, contactsAPI, projectsAPI, type ContactStats } from '@/services
 
 const router = useRouter()
 
-const user = ref(null)
+const user = ref<User | null>(null)
 const stats = ref<ContactStats>({
   total: 0,
   unread: 0,

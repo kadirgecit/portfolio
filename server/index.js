@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://work-1-eqtwooalxxftlbfj.prod-runtime.all-hands.dev', 'https://work-2-eqtwooalxxftlbfj.prod-runtime.all-hands.dev'],
+  origin: ['http://localhost:5173', 'http://localhost:12000', 'http://localhost:12001', 'http://localhost:12002', 'http://localhost:12003', 'https://work-1-rquywcxlouskjmln.prod-runtime.all-hands.dev', 'https://work-2-rquywcxlouskjmln.prod-runtime.all-hands.dev', '*'],
   credentials: true
 }));
 

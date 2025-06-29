@@ -17,12 +17,13 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 12000,
+    port: 12002,
     allowedHosts: true,
     headers: {
       'X-Frame-Options': 'ALLOWALL',
       'Access-Control-Allow-Origin': '*',
-    }
+    },
+    cors: true
   },
   optimizeDeps: {
     include: ['three', 'gsap', 'lenis']
