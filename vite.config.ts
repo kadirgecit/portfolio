@@ -25,7 +25,23 @@ export default defineConfig({
     },
     cors: true
   },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['vue', 'vue-router', 'pinia'],
+          'three': ['three'],
+          'gsap': ['gsap'],
+          'utils': ['axios', '@vueuse/core', '@vueuse/motion']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
+  },
   optimizeDeps: {
-    include: ['three', 'gsap', 'lenis']
+    include: ['three', 'gsap', 'lenis', 'vue', 'vue-router', 'pinia', 'axios']
   }
 })

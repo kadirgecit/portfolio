@@ -1,14 +1,22 @@
 import axios from 'axios'
 
-// Determine if we're in the OpenHands environment
-const isOpenHandsEnv = window.location.hostname.includes('all-hands.dev');
+// Determine the API base URL based on environment
+const getApiBaseUrl = () => {
+  // Check if we're in development
+  if (import.meta.env.DEV) {
+    return 'http://localhost:3001/api'
+  }
+  
+  // Check if we're in the OpenHands environment
+  if (typeof window !== 'undefined' && window.location.hostname.includes('all-hands.dev')) {
+    return 'http://localhost:3001/api'
+  }
+  
+  // Production environment - use relative path for Vercel
+  return '/api'
+}
 
-// Use the correct URL for the server
-const API_BASE_URL = isOpenHandsEnv 
-  ? 'http://localhost:3001/api' 
-  : import.meta.env.PROD 
-    ? '/api' 
-    : 'http://localhost:3001/api'
+const API_BASE_URL = getApiBaseUrl()
 
 const api = axios.create({
   baseURL: API_BASE_URL,

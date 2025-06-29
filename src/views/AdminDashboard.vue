@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { authAPI, contactsAPI, projectsAPI, type ContactStats } from '@/services/api'
+import { authAPI, contactsAPI, projectsAPI, type ContactStats, type User } from '@/services/api'
 
 const router = useRouter()
 
